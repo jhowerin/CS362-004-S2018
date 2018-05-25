@@ -101,6 +101,7 @@ unittestresults.out: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2
 	gcov dominion.c >> unittestresults.out
 	gcov -b dominion.c >> unittestresults.out
 	gcov -f dominion.c >> unittestresults.out
+	gcov -f -b dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 
 interface.o: interface.h interface.c
