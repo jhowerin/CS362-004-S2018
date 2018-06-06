@@ -16,6 +16,7 @@
  */
 
 import junit.framework.TestCase;
+
 /** Jake Howering testing
 /**
  * Performs Validation Test for url validations.
@@ -271,6 +272,7 @@ protected void setUp() {
    };
 
    Object[] testUrlParts = {testUrlScheme, testUrlAuthority, testUrlPort, testPath, testUrlQuery};
+   //Object[] testUrlPartsRandom = {testUrlPort,testPath, testUrlScheme, testUrlQuery,testUrlAuthority};
    Object[] testUrlPartsOptions = {testUrlScheme, testUrlAuthority, testUrlPort, testUrlPathOptions, testUrlQuery};
    int[] testPartsIndex = {0, 0, 0, 0, 0};
 
