@@ -53,7 +53,7 @@ public class UrlValidatorTest extends TestCase {
        
        //This one below passes but the URL is wrong with the .beaver. Let's check if 
        //this is a bug
-       assertTrue(testURL.isValid("http://www.github.beaver"));
+       assertTrue(testURL.isValid("http://www.oregonstate.beaver"));
        
        //This one below fails but the URL is valid so we need to check if this is a bug.
        //we'll comment this out and use the manualTestHelper 
@@ -64,7 +64,7 @@ public class UrlValidatorTest extends TestCase {
        //This is a valid URL but fails and causes the program to crash so let's comment it out
        //manualTestHelper(testURL, "https://login.oregonstate.edu/idp/profile/cas/login?execution=e1s1");
        //This is an invalid URL but passes
-       manualTestHelper(testURL, "http://www.github.beaver");
+       manualTestHelper(testURL, "http://www.oregonstate.beaver");
 
       
        System.out.println("Completed the manual testing!\n");
