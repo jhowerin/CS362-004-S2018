@@ -45,8 +45,6 @@ public class UrlValidatorTest extends TestCase {
        assertTrue(testURL.isValid("http://oregonstate.edu"));
        assertTrue(testURL.isValid("http://oregonstate.edu/"));
        assertTrue(testURL.isValid("http://oregonstate.edu/about"));
-       assertTrue(testURL.isValid("http://localhost"));
-       assertTrue(testURL.isValid("http://localhost/"));
        
        //This one below fails so it's commented out to run and we'll send this one 
        //to the manualTestHelper. Note that this is a real valid URL and we need to check
