@@ -208,8 +208,321 @@ public class UrlValidatorTest extends TestCase {
    {
 	   //You can use this function for programming based testing
 
+     
+     UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
+
+//   FIXME play around and test usage
+//     boolean test = urlVal.isValid("http://////www.facebook.com");
+//     if (test)
+//     {
+//    	 System.out.println("test passed");
+//     }
+//     else
+//     {
+//    	 System.out.println("test failed");
+//     }
+//     
+     
+//     TEST SCHEMES
+//     ---------------------------------------------------------------------
+     
+     
+     // loop through the schemes below
+     int i;
+     
+     for(i = 0; i < urlSchemes.length; i++)
+     {
+    	 StringBuffer buffer = new StringBuffer("www.example.com");
+    	 
+//    	 insert the scheme into beginning of schemeTest to create the URL
+    	 buffer.insert(0, urlSchemes[i].item);
+    	 String url = buffer.toString();
+    	 
+    	 try 
+    	 {
+//        	 call isValid on URL
+        	 boolean result = urlVal.isValid(url);
+        	 
+//        	 compare expected and actual result, print "test failed: <URL>" on failure
+//        	 if isValid should be true and it returns false  
+        	 if (urlSchemes[i].valid == true)
+        	 {
+        		 if (result == false)
+        		 {
+        			 System.out.println("TEST FAILURE: " + url + " should be valid");
+        			 
+        		 }
+        	 }
+//        	 if isValid should be false and returns true
+        	 else if(urlSchemes[i].valid == false)
+        	 {
+        		 if (result == true)
+        		 {
+        			 System.out.println("TEST FAILURE: " + url + " should not be valid");
+        		 }
+        	 }
+    	 } 
+    	 catch(ExceptionInInitializerError e)
+    	 {
+    		 System.out.println("Exception error with url: " + url);
+    	 }
+
+    	 
+    	 
+
+     }
+     
+     
+     
+     
+//     TEST DOMAINS
+//   ---------------------------------------------------------------------
+     
+//     loop through the domains below
+     for (i = 0; i < urlHosts.length; i++)
+     {
+//    	 base url with scheme
+    	 StringBuffer buffer = new StringBuffer("http://");
+    	 
+//    	 append domain to scheme
+    	 buffer.append(urlHosts[i].item);
+    	 String url = buffer.toString();
+    	 
+    	 try 
+    	 {
+//        	 call isValid on URL
+        	 boolean result = urlVal.isValid(url);
+        	 
+//        	 compare expected and actual result, print "test failed: <URL>" on failure
+//        	 if isValid should be true and it returns false  
+        	 if (urlHosts[i].valid == true)
+        	 {
+        		 if (result == false)
+        		 {
+        			 System.out.println("TEST FAILURE: " + url + " should be valid");
+        			 
+        		 }
+        	 }
+//        	 if isValid should be false and returns true
+        	 else if(urlHosts[i].valid == false)
+        	 {
+        		 if (result == true)
+        		 {
+        			 System.out.println("TEST FAILURE: " + url + " should not be valid");
+        		 }
+        	 }
+    	 } 
+    	 catch(ExceptionInInitializerError e)
+    	 {
+    		 System.out.println("Exception error with url: " + url);
+    	 }
+
+    	
+    	 
+     }
+     
+     
+     
+     
+//     TEST PORTS
+//   ---------------------------------------------------------------------
+     for (i = 0; i < urlPorts.length; i++)
+     {
+//    	 base url 
+    	 StringBuffer buffer = new StringBuffer("http://www.example.com");
+    	 
+//    	 append port number to scheme
+    	 buffer.append(urlPorts[i].item);
+    	 String url = buffer.toString();
+    	 
+    	 try 
+    	 {
+//        	 call isValid on URL
+        	 boolean result = urlVal.isValid(url);
+        	 
+//        	 compare expected and actual result, print "test failed: <URL>" on failure
+//        	 if isValid should be true and it returns false  
+        	 if (urlPorts[i].valid == true)
+        	 {
+        		 if (result == false)
+        		 {
+        			 System.out.println("TEST FAILURE: " + url + " should be valid");
+        			 
+        		 }
+        	 }
+//        	 if isValid should be false and returns true
+        	 else if(urlPorts[i].valid == false)
+        	 {
+        		 if (result == true)
+        		 {
+        			 System.out.println("TEST FAILURE: " + url + " should not be valid");
+        		 }
+        	 }
+    	 } 
+    	 catch(ExceptionInInitializerError e)
+    	 {
+    		 System.out.println("Exception error with url: " + url);
+    	 }
+
+    	 
+     }
+     
+     
+//     TEST PATHS
+//   ---------------------------------------------------------------------
+     for (i = 0; i < urlPaths.length; i++)
+     {
+//    	 base url
+    	 StringBuffer buffer = new StringBuffer("http://www.google.com");
+    	 
+//    	 append path to buffer
+    	 buffer.append(urlPaths[i].item);
+    	 String url = buffer.toString();
+    	 
+    	 try 
+    	 {
+//        	 call isValid on URL
+        	 boolean result = urlVal.isValid(url);
+        	 
+//        	 compare expected and actual result, print "test failed: <URL>" on failure
+//        	 if isValid should be true and it returns false  
+        	 if (urlPaths[i].valid == true)
+        	 {
+        		 if (result == false)
+        		 {
+        			 System.out.println("TEST FAILURE: " + url + " should be valid");
+        			 
+        		 }
+        	 }
+//        	 if isValid should be false and returns true
+        	 else if(urlPaths[i].valid == false)
+        	 {
+        		 if (result == true)
+        		 {
+        			 System.out.println("TEST FAILURE: " + url + " should not be valid");
+        		 }
+        	 }
+    	 } 
+    	 catch(ExceptionInInitializerError e)
+    	 {
+    		 System.out.println("Exception error with url: " + url);
+    	 }
+
+     }
+     
+     
+     
+     
+     
+     
+//   TEST IPv4 addresses
+// ---------------------------------------------------------------------
+     for (i = 0; i < urlIps.length; i++)
+     {
+//    	 base url scheme
+    	 StringBuffer buffer = new StringBuffer("http://");
+    	 
+//    	 append IPv4 address to buffer
+    	 buffer.append(urlIps[i].item);
+    	 String url = buffer.toString();
+    	 
+    	 
+    	 try 
+    	 {
+//        	 call isValid on URL
+        	 boolean result = urlVal.isValid(url);
+        	 
+//        	 compare expected and actual result, print "test failed: <URL>" on failure
+//        	 if isValid should be true and it returns false  
+        	 if (urlIps[i].valid == true)
+        	 {
+        		 if (result == false)
+        		 {
+        			 System.out.println("TEST FAILURE: " + url + " should be valid");
+        			 
+        		 }
+        	 }
+//        	 if isValid should be false and returns true
+        	 else if(urlIps[i].valid == false)
+        	 {
+        		 if (result == true)
+        		 {
+        			 System.out.println("TEST FAILURE: " + url + " should not be valid");
+        		 }
+        	 }
+    	 } 
+    	 catch(ExceptionInInitializerError e)
+    	 {
+    		 System.out.println("Exception error with url: " + url);
+    	 }
+
+    	 
+     }
+     
+     
+     
+     
+     
+     
+     
    }
    
+   
+   
+   
+//   Test data for testIsValid()
+//   tests URL's are formed by concatenating together 
+// <scheme>://<host>:<port>/<path>. Calling isValid() on 
+//   a test URL should only return true if all parts of the URL
+//   are valid
+   
+   ResultPair[] urlSchemes = {
+		   new ResultPair("http://", true),
+		   new ResultPair("ftp://", true),
+		   new ResultPair("https://", true),
+		   new ResultPair("http:/", false),
+		   new ResultPair("blah://", false),
+		   new ResultPair("", true),
+		   new ResultPair("abdc://", false),
+		   new ResultPair("http//:", false)
+   };
+   
+   ResultPair[] urlHosts = {
+		   new ResultPair("www.example.com", true),
+		   new ResultPair("www.facebook.com", true),
+		   new ResultPair("www.applecom", false),
+		   new ResultPair("www.oregonstate.edu", true),
+		   new ResultPair("www.oregonstateedu", false)
+   };
+   
+   ResultPair[] urlIps = {
+		   new ResultPair("192.0.13.22", true),
+		   new ResultPair("255.255.255.255", true),
+		   new ResultPair("192.256.0.15", false),
+		   new ResultPair("255.300.0.15", false)
+   };
+   
+   
+   ResultPair[] urlPorts = {
+		   new ResultPair(":80", true),
+		   new ResultPair(":1", true),
+		   new ResultPair(":65535", true),
+		   new ResultPair(":-1", false),
+		   new ResultPair(":66000", false)
+   };
+   
+   
+   ResultPair[] urlPaths = {
+		   new ResultPair("/testPath1", true),
+		   new ResultPair("/testPath1/test", true),
+		   new ResultPair("/te tPath", false),
+		   new ResultPair("/stuff/{things}", false),
+		   new ResultPair("/bad\things", false),
+		   new ResultPair("/bad[character", false)
+   };
+
+
+	
 
 
 }
