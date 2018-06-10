@@ -291,6 +291,7 @@ public class UrlValidatorTest extends TestCase {
     	 try 
     	 {
 //        	 call isValid on URL
+    		 System.out.println(url);
         	 boolean result = urlVal.isValid(url);
         	 
 //        	 compare expected and actual result, print "test failed: <URL>" on failure
