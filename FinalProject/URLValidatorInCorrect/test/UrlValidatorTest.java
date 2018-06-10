@@ -29,7 +29,7 @@ public class UrlValidatorTest extends TestCase {
 	       }
        
 	   } catch (ExceptionInInitializerError e) {
-		   System.out.print(urlString + " is a bad URL - Test Fails!\n");
+		   System.out.print(urlString + " Exception Error with bad URL - Test Fails!\n");
 		   //e.printStackTrace();
 	   }
    
@@ -51,7 +51,6 @@ public class UrlValidatorTest extends TestCase {
        assertTrue(testURL.isValid("http://www.oregonstate.edu"));
        assertTrue(testURL.isValid("http://www.oregonstate.edu/"));
        assertTrue(testURL.isValid("http://www.oregonstate.edu/about"));
-       assertTrue(testURL.isValid("http://www.oregonstate.edu/about"));
        assertTrue(testURL.isValid("http://oregonstate.edu"));
        assertTrue(testURL.isValid("http://oregonstate.edu/"));
        assertTrue(testURL.isValid("http://oregonstate.edu/about"));
@@ -60,7 +59,6 @@ public class UrlValidatorTest extends TestCase {
        manualTestHelper(testURL, "http://www.oregonstate.com:80");
        manualTestHelper(testURL, "http://www.oregonstate.edu");
        manualTestHelper(testURL, "http://www.oregonstate.edu/");
-       manualTestHelper(testURL, "http://www.oregonstate.edu/about");
        manualTestHelper(testURL, "http://www.oregonstate.edu/about");
        manualTestHelper(testURL, "http://oregonstate.edu");
        manualTestHelper(testURL, "http://oregonstate.edu/");
