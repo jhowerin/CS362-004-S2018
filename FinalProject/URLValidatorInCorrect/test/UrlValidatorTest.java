@@ -203,7 +203,6 @@ public class UrlValidatorTest extends TestCase {
    }
 
    //You need to create more test cases for your Partitions if you need to 
-   
    public void testIsValid()
    {
 	   //You can use this function for programming based testing
@@ -240,6 +239,8 @@ public class UrlValidatorTest extends TestCase {
     	 
     	 try 
     	 {
+//    		 System.out.println("url is " + url);
+    		 
 //        	 call isValid on URL
         	 boolean result = urlVal.isValid(url);
         	 
@@ -266,6 +267,10 @@ public class UrlValidatorTest extends TestCase {
     	 {
     		 System.out.println("Exception error with url: " + url);
     	 }
+    	 catch(NoClassDefFoundError e)
+    	 {
+    		 System.out.println("NoClassDefFound error with url: " + url);
+    	 }
 
     	 
     	 
@@ -290,6 +295,7 @@ public class UrlValidatorTest extends TestCase {
     	 
     	 try 
     	 {
+//    		 System.out.println("url is " + url);
 //        	 call isValid on URL
         	 boolean result = urlVal.isValid(url);
         	 
@@ -315,6 +321,10 @@ public class UrlValidatorTest extends TestCase {
     	 catch(ExceptionInInitializerError e)
     	 {
     		 System.out.println("Exception error with url: " + url);
+    	 }
+    	 catch(NoClassDefFoundError e)
+    	 {
+    		 System.out.println("NoClassDefFound error with url: " + url);
     	 }
 
     	
@@ -363,6 +373,10 @@ public class UrlValidatorTest extends TestCase {
     	 {
     		 System.out.println("Exception error with url: " + url);
     	 }
+    	 catch(NoClassDefFoundError e)
+    	 {
+    		 System.out.println("NoClassDefFound error with url: " + url);
+    	 }
 
     	 
      }
@@ -406,6 +420,10 @@ public class UrlValidatorTest extends TestCase {
     	 catch(ExceptionInInitializerError e)
     	 {
     		 System.out.println("Exception error with url: " + url);
+    	 }
+    	 catch(NoClassDefFoundError e)
+    	 {
+    		 System.out.println("NoClassDefFound error with url: " + url);
     	 }
 
      }
@@ -455,6 +473,10 @@ public class UrlValidatorTest extends TestCase {
     	 {
     		 System.out.println("Exception error with url: " + url);
     	 }
+    	 catch(NoClassDefFoundError e)
+    	 {
+    		 System.out.println("NoClassDefFound error with url: " + url);
+    	 }
 
     	 
      }
@@ -479,9 +501,9 @@ public class UrlValidatorTest extends TestCase {
    ResultPair[] urlSchemes = {
 		   new ResultPair("http://", true),
 		   new ResultPair("ftp://", true),
-		   new ResultPair("https://", true),
+		   new ResultPair("https://", true),        // https:// causes noClassDefFoundError
 		   new ResultPair("http:/", false),
-		   new ResultPair("blah://", false),
+		   new ResultPair("blah://", false),   // causes noClassDefFoundError
 		   new ResultPair("", true),
 		   new ResultPair("abdc://", false),
 		   new ResultPair("http//:", false)
@@ -522,7 +544,7 @@ public class UrlValidatorTest extends TestCase {
    };
 
 
-	
+
 
 
 }
