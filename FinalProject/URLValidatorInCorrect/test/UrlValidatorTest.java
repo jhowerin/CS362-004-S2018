@@ -1,7 +1,6 @@
 
 
 import junit.framework.TestCase;
-import java.util.concurrent.ThreadLocalRandom;
 
 //You can use this as a skeleton for your 3 different test approach
 //It is an optional to use this file, you can generate your own test file(s) to test the target function!
