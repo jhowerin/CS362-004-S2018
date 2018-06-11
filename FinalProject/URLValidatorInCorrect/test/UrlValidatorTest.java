@@ -148,7 +148,7 @@ public class UrlValidatorTest extends TestCase {
    public void testYourSecondPartition(){
 	 //Partition One Testing
 	   System.out.println("*************************************************************");
-	   System.out.print("Partition Two Testing\n");
+	   System.out.println("Partition Two Testing\n");
 	   System.out.println("Calling the isValid methon or URLValidator with different");
 	   System.out.println("parts of the URL that are invalid.");
 	   System.out.println("*************************************************************");
@@ -206,25 +206,16 @@ public class UrlValidatorTest extends TestCase {
    public void testIsValid()
    {
 	   //You can use this function for programming based testing
+	   System.out.println();
+	   System.out.println("*************************************************************");
+	   System.out.println("Programmatic Testing");
+	   System.out.println("*************************************************************");
 
      
      UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
-
-//   FIXME play around and test usage
-//     boolean test = urlVal.isValid("http://////www.facebook.com");
-//     if (test)
-//     {
-//    	 System.out.println("test passed");
-//     }
-//     else
-//     {
-//    	 System.out.println("test failed");
-//     }
-//     
      
 //     TEST SCHEMES
 //     ---------------------------------------------------------------------
-     
      
      // loop through the schemes below
      int i;
@@ -236,50 +227,31 @@ public class UrlValidatorTest extends TestCase {
 //    	 insert the scheme into beginning of schemeTest to create the URL
     	 buffer.insert(0, urlSchemes[i].item);
     	 String url = buffer.toString();
-    	 
+    	 System.out.println("Testing the URL scheme with URL " + url);
     	 try 
     	 {
-//    		 System.out.println("url is " + url);
-    		 
 //        	 call isValid on URL
         	 boolean result = urlVal.isValid(url);
-        	 
 //        	 compare expected and actual result, print "test failed: <URL>" on failure
 //        	 if isValid should be true and it returns false  
-        	 if (urlSchemes[i].valid == true)
-        	 {
-        		 if (result == false)
-        		 {
+        	 if ((urlSchemes[i].valid == true) && (result == false)) {
         			 System.out.println("TEST FAILURE: " + url + " should be valid");
-        			 
-        		 }
-        	 }
-//        	 if isValid should be false and returns true
-        	 else if(urlSchemes[i].valid == false)
-        	 {
-        		 if (result == true)
-        		 {
+        	 } else if((urlSchemes[i].valid  == false) && (result == true)) { // if isValid should be false and returns true
         			 System.out.println("TEST FAILURE: " + url + " should not be valid");
-        		 }
+        	 } else {
+        		 System.out.print(url + " is a good URL - Test Passes!\n");
         	 }
     	 } 
-    	 catch(ExceptionInInitializerError e)
-    	 {
+    	 catch(ExceptionInInitializerError e) {
     		 System.out.println("Exception error with url: " + url);
     	 }
-    	 catch(NoClassDefFoundError e)
-    	 {
+    	 catch(NoClassDefFoundError e) {
     		 System.out.println("NoClassDefFound error with url: " + url);
     	 }
-
-    	 
-    	 
+    	 System.out.println();
 
      }
-     
-     
-     
-     
+
 //     TEST DOMAINS
 //   ---------------------------------------------------------------------
      
@@ -292,31 +264,25 @@ public class UrlValidatorTest extends TestCase {
 //    	 append domain to scheme
     	 buffer.append(urlHosts[i].item);
     	 String url = buffer.toString();
+    	 System.out.println("Testing the URL authority with URL " + url);
     	 
     	 try 
     	 {
 //    		 System.out.println("url is " + url);
 //        	 call isValid on URL
-    		 System.out.println(url);
+    		 //System.out.println(url);
         	 boolean result = urlVal.isValid(url);
         	 
 //        	 compare expected and actual result, print "test failed: <URL>" on failure
 //        	 if isValid should be true and it returns false  
-        	 if (urlHosts[i].valid == true)
-        	 {
-        		 if (result == false)
-        		 {
-        			 System.out.println("TEST FAILURE: " + url + " should be valid");
-        			 
-        		 }
+        	 if ((urlHosts[i].valid == true) &&(result == false)) {
+        			 System.out.println("TEST FAILURE: " + url + " should be valid"); 
         	 }
 //        	 if isValid should be false and returns true
-        	 else if(urlHosts[i].valid == false)
-        	 {
-        		 if (result == true)
-        		 {
+        	 else if((urlHosts[i].valid == false) && (result == true)) {
         			 System.out.println("TEST FAILURE: " + url + " should not be valid");
-        		 }
+        	 } else {
+        		 System.out.print(url + " is a good URL - Test Passes!\n");
         	 }
     	 } 
     	 catch(ExceptionInInitializerError e)
@@ -327,14 +293,10 @@ public class UrlValidatorTest extends TestCase {
     	 {
     		 System.out.println("NoClassDefFound error with url: " + url);
     	 }
-
-    	
-    	 
+    	 System.out.println();
+    	    	 
      }
-     
-     
-     
-     
+
 //     TEST PORTS
 //   ---------------------------------------------------------------------
      for (i = 0; i < urlPorts.length; i++)
@@ -345,6 +307,7 @@ public class UrlValidatorTest extends TestCase {
 //    	 append port number to scheme
     	 buffer.append(urlPorts[i].item);
     	 String url = buffer.toString();
+    	 System.out.println("Testing the URL ports with URL " + url);
     	 
     	 try 
     	 {
@@ -353,21 +316,14 @@ public class UrlValidatorTest extends TestCase {
         	 
 //        	 compare expected and actual result, print "test failed: <URL>" on failure
 //        	 if isValid should be true and it returns false  
-        	 if (urlPorts[i].valid == true)
-        	 {
-        		 if (result == false)
-        		 {
-        			 System.out.println("TEST FAILURE: " + url + " should be valid");
-        			 
-        		 }
+        	 if ((urlPorts[i].valid == true) && (result = false)) {
+        		 System.out.println("TEST FAILURE: " + url + " should be valid");
         	 }
 //        	 if isValid should be false and returns true
-        	 else if(urlPorts[i].valid == false)
-        	 {
-        		 if (result == true)
-        		 {
-        			 System.out.println("TEST FAILURE: " + url + " should not be valid");
-        		 }
+        	 else if((urlPorts[i].valid == false) && (result == true)) {
+        		 System.out.println("TEST FAILURE: " + url + " should not be valid");
+        	 } else {
+        		 System.out.print(url + " is a good URL - Test Passes!\n");
         	 }
     	 } 
     	 catch(ExceptionInInitializerError e)
@@ -378,7 +334,7 @@ public class UrlValidatorTest extends TestCase {
     	 {
     		 System.out.println("NoClassDefFound error with url: " + url);
     	 }
-
+    	 System.out.println();
     	 
      }
      
@@ -393,6 +349,7 @@ public class UrlValidatorTest extends TestCase {
 //    	 append path to buffer
     	 buffer.append(urlPaths[i].item);
     	 String url = buffer.toString();
+    	 System.out.println("Testing the URL paths with URL " + url);
     	 
     	 try 
     	 {
@@ -401,21 +358,14 @@ public class UrlValidatorTest extends TestCase {
         	 
 //        	 compare expected and actual result, print "test failed: <URL>" on failure
 //        	 if isValid should be true and it returns false  
-        	 if (urlPaths[i].valid == true)
-        	 {
-        		 if (result == false)
-        		 {
-        			 System.out.println("TEST FAILURE: " + url + " should be valid");
-        			 
-        		 }
+        	 if ((urlPaths[i].valid == true) && (result == false)) {
+        		 System.out.println("TEST FAILURE: " + url + " should be valid");
         	 }
 //        	 if isValid should be false and returns true
-        	 else if(urlPaths[i].valid == false)
-        	 {
-        		 if (result == true)
-        		 {
-        			 System.out.println("TEST FAILURE: " + url + " should not be valid");
-        		 }
+        	 else if((urlPaths[i].valid == false) && (result == true)) {
+        		 	System.out.println("TEST FAILURE: " + url + " should not be valid");
+        	 } else {
+        		 System.out.print(url + " is a good URL - Test Passes!\n");
         	 }
     	 } 
     	 catch(ExceptionInInitializerError e)
@@ -426,13 +376,9 @@ public class UrlValidatorTest extends TestCase {
     	 {
     		 System.out.println("NoClassDefFound error with url: " + url);
     	 }
+    	 System.out.println();
 
      }
-     
-     
-     
-     
-     
      
 //   TEST IPv4 addresses
 // ---------------------------------------------------------------------
@@ -444,7 +390,7 @@ public class UrlValidatorTest extends TestCase {
 //    	 append IPv4 address to buffer
     	 buffer.append(urlIps[i].item);
     	 String url = buffer.toString();
-    	 
+    	 System.out.println("Testing the URL IP's with URL " + url);
     	 
     	 try 
     	 {
@@ -453,21 +399,14 @@ public class UrlValidatorTest extends TestCase {
         	 
 //        	 compare expected and actual result, print "test failed: <URL>" on failure
 //        	 if isValid should be true and it returns false  
-        	 if (urlIps[i].valid == true)
-        	 {
-        		 if (result == false)
-        		 {
-        			 System.out.println("TEST FAILURE: " + url + " should be valid");
-        			 
-        		 }
+        	 if ((urlIps[i].valid == true) && (result == false)) {
+        		 System.out.println("TEST FAILURE: " + url + " should be valid");
         	 }
 //        	 if isValid should be false and returns true
-        	 else if(urlIps[i].valid == false)
-        	 {
-        		 if (result == true)
-        		 {
-        			 System.out.println("TEST FAILURE: " + url + " should not be valid");
-        		 }
+        	 else if((urlIps[i].valid == false) && (result == true)) {
+        		 System.out.println("TEST FAILURE: " + url + " should not be valid");
+        	 } else {
+        		 System.out.print(url + " is a good URL - Test Passes!\n");
         	 }
     	 } 
     	 catch(ExceptionInInitializerError e)
@@ -478,21 +417,16 @@ public class UrlValidatorTest extends TestCase {
     	 {
     		 System.out.println("NoClassDefFound error with url: " + url);
     	 }
-
+    	 System.out.println();
     	 
      }
      
-     
-     
-     
-     
-     
+     System.out.println("\nProgrammatic Testing Complete");
+     System.out.println("*************************************************************");
+
      
    }
-   
-   
-   
-   
+
 //   Test data for testIsValid()
 //   tests URL's are formed by concatenating together 
 // <scheme>://<host>:<port>/<path>. Calling isValid() on 
@@ -543,9 +477,6 @@ public class UrlValidatorTest extends TestCase {
 		   new ResultPair("/bad\things", false),
 		   new ResultPair("/bad[character", false)
    };
-
-
-
-
+   
 
 }
