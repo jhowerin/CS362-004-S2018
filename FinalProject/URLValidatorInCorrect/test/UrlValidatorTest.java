@@ -86,9 +86,10 @@ public class UrlValidatorTest extends TestCase {
    
    public void testYourFirstPartition()
    {
+   
 	   //Partition One Testing
 	   System.out.println("*************************************************************");
-	   System.out.println("Partition One Testing");
+	   System.out.println("Valid Input Partition");
 	   System.out.println("Calling the isValid methon or URLValidator with different");
 	   System.out.println("parts of the URL that are valid. Therefore, we expect the");
 	   System.out.println("URL's to pass the assertions");
@@ -139,7 +140,7 @@ public class UrlValidatorTest extends TestCase {
        manualTestHelper(urlQuery, "http://www.oregonstate.com"+query);
        //assertTrue(urlQuery.isValid(scheme+authority+port+path+query));
        
-       System.out.print("Partition One Testing Complete\n");
+       System.out.print("Valid Input Partition Complete\n");
 	   System.out.println("*************************************************************");
        
 	}
@@ -148,7 +149,7 @@ public class UrlValidatorTest extends TestCase {
    public void testYourSecondPartition(){
 	 //Partition One Testing
 	   System.out.println("*************************************************************");
-	   System.out.println("Partition Two Testing\n");
+	   System.out.println("Invalid Input Partition Testing\n");
 	   System.out.println("Calling the isValid methon or URLValidator with different");
 	   System.out.println("parts of the URL that are invalid.");
 	   System.out.println("*************************************************************");
@@ -198,7 +199,7 @@ public class UrlValidatorTest extends TestCase {
        manualTestHelper(urlQuery, "http://www.oregonstate.com"+query);
        //assertTrue(urlQuery.isValid(scheme+authority+port+path+query));
        
-       System.out.print("Partition Two Testing Complete\n");
+       System.out.print("Invalid Input Partition Complete\n");
 	   System.out.println("*************************************************************");
    }
 
