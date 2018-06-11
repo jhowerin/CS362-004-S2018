@@ -6,6 +6,7 @@ import junit.framework.TestCase;
 //It is an optional to use this file, you can generate your own test file(s) to test the target function!
 // Again, it is up to you to use this file or not!
 // Spring 2018
+// howerinj-finalproject
 
 
 public class UrlValidatorTest extends TestCase {
